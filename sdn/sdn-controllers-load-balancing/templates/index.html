@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgba(0,0,0,0.6);
+        color : white;
+        margin : 0px;
+    }
+    .sdn{
+        font-size: 60px;
+        background-color: beige;
+        margin-top: 0;
+        color: cornflowerblue;
+
+    }
+    .itr{
+        font-size: 20px;
+        
+    }
+    .itr-val{
+        font-size: 15px;
+    }
+    .details{
+        margin: auto;
+        border: 3px solid beige;
+        width: 50%;
+    }
+</style>
+<body>
+
+    <center><h2 class="sdn">
+        SDN CONTROLLER
+    </h2></center>
+    {% for x,y in data.items() %}
+        <div class="details">
+
+        
+        <center> <h2 class="itr"> ITERATION {{x}} </h2> </center>
+        <br>
+        <center class="itr-val">
+            {% for each_value in y %}
+                <p> {{ each_value | upper }} </p>
+            {% endfor %}
+        </center>
+
+        </div>
+    
+        <br>
+        <br>
+    {% endfor %}
+</body>
+</html> 

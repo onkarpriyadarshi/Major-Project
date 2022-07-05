@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<style>
+    body{
+        background-color: rgba(0,0,0,0.6);
+        color : white;
+        margin : 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* height: 100vh; */
+    }
+    input{
+        margin: 5% 0 2% 0;
+        width: 150px;
+        height: 20px;
+        font-size: 15px;
+    }
+    .sdn{
+        font-size: 45px;
+        background-color: beige;
+        /* margin-top: 0; */
+        color: cornflowerblue;
+        width: 100%;
+        /* align-items: center; */
+        text-align: center;
+        font-weight: 700;
+        word-spacing: 20px;
+        letter-spacing: 2px;
+
+    }
+    .enter{
+        background-color: beige;
+        color: cornflowerblue;
+        margin-top: 8%;
+        font-size: 30px;
+        text-align: center;
+        font-weight: 700;
+        word-spacing: 20px;
+        /* letter-spacing: 2px; */
+    }
+    button{
+        width: 140px;
+        height: 40px;
+        font-size: 15px;
+        background-color: beige;
+        /* margin-top: 0; */
+        color: cornflowerblue;
+
+    }
+
+</style>
+<body>
+
+   <div class="sdn">
+    DAYANANDA SAGAR COLLEGE OF ENGINEERING 
+    <marquee behavior="alternate" direction="left" scrollamount=10><span style="color:red; font-size: 60px;">SDN CONTROLLER</span></marquee>
+   </div>
+
+   <div class="enter">
+    Enter the number of controller : 
+   </div>
+    <input type="number" id="noOfController" />
+    <button onclick="start_SDN()"> <b>Start Controller</b> </button>
+
+    <script>
+        start_SDN = () => {
+            var noOfController = document.querySelector("#noOfController").value;
+            console.log(noOfController);
+            fetch("http://127.0.0.1:5000/start/"+noOfController).then(
+               () => {
+                window.location.href = "http://127.0.0.1:5000/output";
+               }
+            );
+        }
+    </script>
+</body>
+</html>
